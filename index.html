@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin Project Library</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>My Book Library</h1>
+
+    <!-- Book Input -->
+
+    <form id="user-input">
+      <label for="title"
+        >TITLE: <input type="text" id="title" required
+      /></label>
+      <label for="author"
+        >AUTHOR: <input type="text" id="author" required
+      /></label>
+      <label for="genre"
+        >GENRE: <input type="text" id="genre" required
+      /></label>
+      <label for="pages"
+        >PAGES: <input type="number" id="pages" required
+      /></label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <div id="library-display"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
