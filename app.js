@@ -1,3 +1,6 @@
+let inputForm = document.getElementById("user-form");
+let bookDisplay = document.getElementById("book-display");
+
 const myLibrary = [];
 
 class Book {
@@ -14,38 +17,35 @@ function addBookToLibrary(title, author, genre, pages) {
   myLibrary.push(newBook);
 }
 
-const form = document.getElementById("user-input");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+inputForm.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  const title = document.getElementById("title");
-  const author = document.getElementById("author");
-  const genre = document.getElementById("genre");
-  const pages = document.getElementById("pages");
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const genre = document.getElementById("genre").value;
+  const pages = document.getElementById("pages").value;
 
-  addBookToLibrary(title.value, author.value, genre.value, pages.value);
-  updateDisplay();
-  form.reset();
+  addBookToLibrary(title, author, genre, pages);
+  displayLibrary();
+
+  console.log(myLibrary);
 });
 
-function updateDisplay() {
-  const display = document.getElementById("library-display");
-  display.innerHTML = "";
+function displayLibrary() {
+  bookDisplay.innerHTML = "";
 
   myLibrary.forEach((book, index) => {
     const newDiv = document.createElement("div");
-    const newButton = document.createElement("button");
-    newButton.textContent = "REMOVE";
-    newDiv.classList.add("book-element");
+    const deleteButton = document.createElement("button");
 
-    newDiv.textContent = `${book.title} ${book.author} ${book.genre} ${book.pages}`;
+    deleteButton.innerText = "REMOVE";
 
-    newButton.addEventListener("click", () => {
+    deleteButton.addEventListener("click", function () {
       myLibrary.splice(index, 1);
-      updateDisplay();
+      displayLibrary();
     });
-
-    display.appendChild(newDiv);
-    display.appendChild(newButton);
+    newDiv.innerText = `TITLE: ${book.title} | AUTHOR: ${book.author} | GENRE: ${book.genre} | PAGES: ${book.pages}`;
+    bookDisplay.appendChild(newDiv);
+    newDiv.appendChild(deleteButton);
   });
 }

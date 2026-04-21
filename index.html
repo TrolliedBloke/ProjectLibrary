@@ -3,31 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Odin Project Library</title>
+    <title>Odin Practice</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <h1>My Book Library</h1>
-
-    <!-- Book Input -->
-
-    <form id="user-input">
+    <h1>Student Library!</h1>
+    <!-- USER INPUT FORM -->
+    <form action="" id="user-form">
+      <h2>Add a Book</h2>
       <label for="title"
-        >TITLE: <input type="text" id="title" required
+        >TITLE: <input type="text" id="title" name="title" required
       /></label>
       <label for="author"
-        >AUTHOR: <input type="text" id="author" required
+        >AUTHOR: <input type="text" id="author" name="author" required
       /></label>
       <label for="genre"
-        >GENRE: <input type="text" id="genre" required
+        >GENRE: <input type="text" id="genre" name="genre" required
       /></label>
       <label for="pages"
-        >PAGES: <input type="number" id="pages" required
+        >PAGE NUMBER: <input type="number" id="pages" name="pages" required
       /></label>
-      <button type="submit">SUBMIT</button>
-    </form>
-    <div id="library-display"></div>
 
+      <button type="submit">ENTER</button>
+    </form>
+
+    <div id="book-display"></div>
     <script src="./app.js"></script>
   </body>
 </html>
